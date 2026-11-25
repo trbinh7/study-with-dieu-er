@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>STUDY WITH DIEU-ER</title>
+    <meta
+      name="description"
+      content="Platform thuê gia sư dành cho học sinh và gia sư, với đăng ký, đánh giá, lịch học và nhắn tin trực tiếp."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="logo-wrap">
+        <div class="school-logo" aria-label="Logo trường THPT Chuyên Nguyễn Quang Diêu">
+          <img src="school-logo.png" alt="Logo THPT Chuyên Nguyễn Quang Diêu" />
+        </div>
+        <div class="brand-copy">
+          <strong>STUDY WITH DIEU-ER</strong>
+          <small>THPT Chuyên Nguyễn Quang Diêu</small>
+        </div>
+      </div>
+      <nav class="main-nav">
+        <a href="#home">Trang chủ</a>
+        <a href="#matching">Tìm gia sư</a>
+        <a href="#register">Đăng ký</a>
+        <a href="#chat">Nhắn tin</a>
+      </nav>
+      <div class="header-actions">
+        <button class="ghost-button" id="jumpToLogin">Đăng nhập</button>
+        <button class="ghost-button" id="jumpToSignUp">Đăng ký</button>
+      </div>
+    </header>
+
+    <main id="home">
+      <section class="hero">
+        <div class="hero-copy">
+          <span class="eyebrow">Kết nối học sinh và gia sư</span>
+          <h1>Học tập hiệu quả với gia sư phù hợp nhất.</h1>
+          <p>
+            Nền tảng hỗ trợ học sinh tìm gia sư theo môn học, thời khóa biểu và đánh giá thực tế,
+            đồng thời giúp gia sư quản lý lớp học, hồ sơ cá nhân và nhận đơn dạy trực tiếp.
+          </p>
+          <div class="hero-actions">
+            <button class="primary-button" id="findTutorBtn">Tìm gia sư ngay</button>
+            <button class="secondary-button" id="beTutorBtn">Trở thành gia sư</button>
+          </div>
+          <div class="stats">
+            <div class="stat-box">
+              <strong>Chọn môn</strong>
+              <span>Theo nhu cầu thực tế</span>
+            </div>
+            <div class="stat-box">
+              <strong>Gia sư thật</strong>
+              <span>Đăng ký và cập nhật hồ sơ</span>
+            </div>
+            <div class="stat-box">
+              <strong>Lịch học rõ ràng</strong>
+              <span>Phù hợp với từng người</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="auth-stack" id="authStack">
+          <div class="auth-card" id="signUpSection">
+            <div class="card-header">
+              <h2>Đăng ký tài khoản</h2>
+              <span class="badge">Mới</span>
+            </div>
+
+            <form id="authForm">
+              <label>
+                <span>Bạn là</span>
+                <select id="roleSelect">
+                  <option value="student">Học sinh</option>
+                  <option value="tutor">Gia sư</option>
+                </select>
+              </label>
+
+              <label>
+                <span>Họ và tên</span>
+                <input id="nameInput" type="text" placeholder="Nhập tên của bạn" required />
+              </label>
+
+              <label>
+                <span>ID tài khoản</span>
+                <input id="userIdInput" type="text" placeholder="Ví dụ: HS2026_001 hoặc hs_ngoan" required />
+              </label>
+
+              <label>
+                <span>Mật khẩu</span>
+                <input id="passwordInput" type="password" placeholder="••••••••" required />
+              </label>
+
+              <div id="studentFields" class="role-fields">
+                <label>
+                  <span>Môn học muốn học</span>
+                  <select id="studentSubject">
+                    <option value="">-- Chọn môn --</option>
+                    <option value="Toán">Toán</option>
+                    <option value="Lý">Lý</option>
+                    <option value="Hóa">Hóa</option>
+                    <option value="Ngữ văn">Ngữ văn</option>
+                    <option value="Tiếng Anh">Tiếng Anh</option>
+                    <option value="Tin học">Tin học</option>
+                  </select>
+                </label>
+                <label>
+                  <span>Mức độ cần hỗ trợ</span>
+                  <select id="studentLevel">
+                    <option value="">-- Chọn mục tiêu --</option>
+                    <option value="Ôn tập">Ôn tập</option>
+                    <option value="Luyện thi">Luyện thi</option>
+                    <option value="Nâng cao">Nâng cao</option>
+                    <option value="Học bài theo nhu cầu">Học bài theo nhu cầu</option>
+                  </select>
+                </label>
+              </div>
+
+              <div id="tutorFields" class="role-fields hidden">
+                <label>
+                  <span>Môn học giảng dạy</span>
+                  <select id="tutorSubject">
+                    <option value="">-- Chọn môn --</option>
+                    <option value="Toán">Toán</option>
+                    <option value="Lý">Lý</option>
+                    <option value="Hóa">Hóa</option>
+                    <option value="Ngữ văn">Ngữ văn</option>
+                    <option value="Tiếng Anh">Tiếng Anh</option>
+                    <option value="Tin học">Tin học</option>
+                  </select>
+                </label>
+                <label>
+                  <span>Email nhận đơn dạy</span>
+                  <input id="tutorContactEmail" type="email" placeholder="gia-su@example.com" />
+                </label>
+                <label>
+                  <span>Mô tả gia sư</span>
+                  <textarea id="tutorBio" rows="3" placeholder="Mô tả kinh nghiệm, phương pháp giảng dạy..."></textarea>
+                </label>
+                <label>
+                  <span>Thời khóa biểu mong muốn</span>
+                  <input id="tutorSchedule" type="text" placeholder="Ví dụ: Thứ 2, 4, 6 - 18:00 - 20:00" />
+                </label>
+              </div>
+
+              <button class="primary-button full-width" type="submit">Tạo tài khoản</button>
+            </form>
+          </div>
+
+          <div class="auth-card login-card" id="loginSection">
+            <div class="login-header">
+              <div>
+                <span class="eyebrow login-eyebrow">Chào mừng</span>
+                <h2>Đăng nhập</h2>
+              </div>
+              <span class="badge success">Đã có tài khoản</span>
+            </div>
+
+            <form id="loginForm" class="login-form">
+              <label>
+                <span>ID tài khoản</span>
+                <input id="loginUserId" type="text" placeholder="Nhập ID tài khoản của bạn" required />
+              </label>
+
+              <label>
+                <span>Mật khẩu</span>
+                <input id="loginPassword" type="password" placeholder="••••••••" required />
+              </label>
+
+              <div class="login-meta-row">
+                <label class="remember-box">
+                  <input id="rememberLoginCheckbox" type="checkbox" checked />
+                  <span>Ghi nhớ đăng nhập</span>
+                </label>
+                <a href="#" class="text-link">Quên mật khẩu?</a>
+              </div>
+
+              <button type="submit" class="primary-button full-width">Đăng nhập</button>
+            </form>
+            <p class="login-hint">Đăng nhập bằng ID tài khoản và mật khẩu của bạn trên hệ thống. Mỗi tài khoản có ID riêng, không trùng nhau.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="userDashboard" class="user-dashboard hidden">
+        <div class="dashboard-shell">
+          <div class="dashboard-header">
+            <span class="welcome-pill">Đăng nhập thành công</span>
+            <div class="dashboard-actions">
+              <button type="button" class="ghost-button" id="logoutBtn">Đăng xuất</button>
+              <button type="button" class="delete-button" id="deleteAccountBtn">Xóa tài khoản</button>
+            </div>
+          </div>
+
+          <div class="dashboard-grid">
+            <div class="profile-card">
+              <div class="profile-avatar" id="profileAvatar">U</div>
+              <div class="profile-copy">
+                <span class="eyebrow dark">Tài khoản cá nhân</span>
+                <h2 id="profileName">Tên người dùng</h2>
+                <p id="profileRole">Vai trò</p>
+              </div>
+            </div>
+
+            <div class="info-card">
+              <h3>Thông tin cá nhân</h3>
+              <ul class="info-list">
+                <li>
+                  <span>ID tài khoản</span>
+                  <strong id="profileEmail">-</strong>
+                </li>
+                <li>
+                  <span>Vai trò</span>
+                  <strong id="profileRoleDetail">-</strong>
+                </li>
+                <li>
+                  <span>Môn học</span>
+                  <strong id="profileSubject">-</strong>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="summary-grid">
+            <div class="summary-card">
+              <small>Trạng thái</small>
+              <strong id="profileStatus">Đang hoạt động</strong>
+            </div>
+            <div class="summary-card">
+              <small>Ngày tham gia</small>
+              <strong id="profileJoined">-</strong>
+            </div>
+            <div class="summary-card">
+              <small>Hồ sơ</small>
+              <strong id="profileLevel">Đã hoàn tất</strong>
+            </div>
+          </div>
+
+          <div class="profile-detail-panel">
+            <div class="detail-header">
+              <h3 id="profileDetailTitle">Hồ sơ cá nhân</h3>
+              <span id="profileStatusPill" class="status-pill">Đang hoạt động</span>
+            </div>
+            <div id="profileDetailContent" class="profile-detail-content"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="features">
+        <div class="feature-card">
+          <div class="icon">📚</div>
+          <h3>Chọn môn học</h3>
+          <p>Đúng nhu cầu học tập với danh sách môn học rõ ràng và dễ tìm.</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon">🧠</div>
+          <h3>Phương pháp cá nhân</h3>
+          <p>Gia sư xây dựng lộ trình riêng cho từng học sinh và phù hợp với trình độ.</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon">⏰</div>
+          <h3>Lịch học linh hoạt</h3>
+          <p>Tùy chỉnh thời khóa biểu, lên kế hoạch học và theo dõi tiến độ.</p>
+        </div>
+      </section>
+
+      <section id="matching" class="panel-section">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Tìm kiếm</span>
+            <h2>Danh sách gia sư đã đăng ký</h2>
+          </div>
+          <div class="filter-box">
+            <label for="subjectFilter">Lọc theo môn:</label>
+            <select id="subjectFilter">
+              <option value="Tất cả">Tất cả</option>
+              <option value="Toán">Toán</option>
+              <option value="Lý">Lý</option>
+              <option value="Hóa">Hóa</option>
+              <option value="Ngữ văn">Ngữ văn</option>
+              <option value="Tiếng Anh">Tiếng Anh</option>
+              <option value="Tin học">Tin học</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="tutorList" class="tutor-list"></div>
+
+        <div id="reviewPanel" class="review-panel hidden">
+          <div class="review-header">
+            <div>
+              <span class="eyebrow">Đánh giá</span>
+              <h3>Đánh giá gia sư</h3>
+            </div>
+          </div>
+
+          <div class="review-form-grid">
+            <label>
+              <span>Gia sư</span>
+              <select id="reviewTutorSelect"></select>
+            </label>
+          </div>
+
+          <div class="rating-block">
+            <span>Đánh giá của bạn</span>
+            <div id="ratingStars" class="rating-stars" aria-label="Đánh giá từ 1 đến 5 sao">
+              <button type="button" class="star-btn active" data-value="1" aria-label="1 sao">★</button>
+              <button type="button" class="star-btn" data-value="2" aria-label="2 sao">★</button>
+              <button type="button" class="star-btn" data-value="3" aria-label="3 sao">★</button>
+              <button type="button" class="star-btn" data-value="4" aria-label="4 sao">★</button>
+              <button type="button" class="star-btn" data-value="5" aria-label="5 sao">★</button>
+            </div>
+          </div>
+
+          <label>
+            <span>Bình luận</span>
+            <textarea id="reviewComment" rows="3" placeholder="Viết nhận xét về gia sư..."></textarea>
+          </label>
+
+          <button id="submitReviewBtn" class="primary-button full-width" type="button">Gửi đánh giá</button>
+
+          <div id="reviewList" class="review-list-block"></div>
+        </div>
+      </section>
+
+      <section class="dashboard-wrap">
+        <div class="dashboard-panel">
+          <div class="section-head compact">
+            <div>
+              <span class="eyebrow">Học sinh</span>
+              <h2>Danh sách học sinh đã đăng ký</h2>
+            </div>
+          </div>
+          <div id="studentList" class="review-list"></div>
+        </div>
+
+        <div class="dashboard-panel schedule-panel">
+          <div class="section-head compact">
+            <div>
+              <span class="eyebrow">Thời khóa biểu</span>
+              <h2>Lịch giảng dạy</h2>
+            </div>
+          </div>
+          <div id="scheduleTable" class="schedule-table"></div>
+        </div>
+      </section>
+
+      <section id="chat" class="chat-section">
+        <div class="chat-sidebar">
+          <div class="section-head compact">
+            <div>
+              <span class="eyebrow">Liên hệ</span>
+              <h2>Trò chuyện</h2>
+            </div>
+          </div>
+          <div id="chatContacts" class="chat-contacts"></div>
+        </div>
+
+        <div class="chat-panel">
+          <div class="chat-header">
+            <div>
+              <h3 id="chatTitle">Chat với gia sư</h3>
+              <small id="chatStatus">Đang online</small>
+            </div>
+            <span class="status-indicator">●</span>
+          </div>
+
+          <div id="chatMessages" class="chat-messages"></div>
+
+          <div class="chat-input-row">
+            <input id="messageInput" type="text" placeholder="Nhắn tin cho gia sư..." />
+            <button id="sendMessageBtn" class="primary-button">Gửi</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div>
+        <strong>STUDY WITH DIEU-ER</strong>
+        <span>Hệ thống hỗ trợ đổi mới phương pháp học tập</span>
+      </div>
+      <div class="footer-tag">© 2026 • THPT Chuyên Nguyễn Quang Diêu</div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

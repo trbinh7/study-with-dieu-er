@@ -1,0 +1,57 @@
+{
+  "name": "study-with-dieu-er",
+  "version": "1.0.0",
+  "description": "Ứng dụng desktop Study With Dieu-er được xây dựng bằng Electron",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron .",
+    "server": "node server.js",
+    "dist": "electron-builder --win",
+    "pack": "electron-builder --dir",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "electron",
+    "education",
+    "tutor"
+  ],
+  "author": "Dieu-er",
+  "license": "MIT",
+  "type": "commonjs",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.10",
+    "express": "^5.3.0",
+    "nodemailer": "^10.5.0"
+  },
+  "devDependencies": {
+    "electron": "^39.2.7",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "com.dieu-er.study-with-dieu-er",
+    "productName": "Study With Dieu-er",
+    "asar": false,
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "server.js",
+      "package.json",
+      "study-with-dieu-er/**/*",
+      "data/**/*",
+      "node_modules/**/*"
+    ],
+    "win": {
+      "target": [
+        "nsis"
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  }
+}
