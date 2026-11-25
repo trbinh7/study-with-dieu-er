@@ -26,7 +26,7 @@
     "nodemailer": "^10.5.0"
   },
   "devDependencies": {
-    "electron": "^39.2.7",
+    "electron": "^39.8.10",
     "electron-builder": "^26.0.12"
   },
   "build": {
